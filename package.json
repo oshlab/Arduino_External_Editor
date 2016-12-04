@@ -1,0 +1,20 @@
+{
+  "name": "arduinoeditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "window": {
+    "width": 900,
+    "height": 700,
+    "title": "Arduino External Editor",
+    "toolbar": false,
+    "icon": "./img/icon.png",
+    "min_width": 600,
+    "min_height": 450
+  },
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Arduino External Editor</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/fonts.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="topbar">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="filename" class="col-xs-4"></div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4 text-right">
+                <div id="open-btn" class="topbar-btn" data-toggle="tooltip" data-placement="bottom" title="Open">
+                    <i class="fa fa-folder-open" aria-hidden="true"></i>
+                </div>
+                <input style="display:none;" id="fileDialog" type="file"/>
+                <div id="save-btn" class="topbar-btn" data-toggle="tooltip" data-placement="bottom" title="Save">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="sidebar">
+    <div id="sidebar-toolbar">
+        <div id="reparse-btn" class="topbar-btn" data-toggle="tooltip" data-placement="bottom" title="Split Files">
+            <i class="fa fa-code-fork" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div id="file-breakout"></div>
+</div>
+<div id="editor-box">
+    <div id="editor"></div>
+</div>
+<div class="clearfix"></div>
+<div id="welcome">
+    <div class="container-fluid">
+        <h3>Welcome to the Arduino External Editor</h3>
+    </div>
+</div>
+
+<div id="notifier"> something </div>
+
+<!-- load ace -->
+<script src="/js/ace/ace.js"></script>
+<script src="/js/ace/ext-language_tools.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
