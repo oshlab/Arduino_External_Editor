@@ -45,7 +45,7 @@
 <div id="sidebar">
     <div id="sidebar-toolbar">
         <div id="reparse-btn" class="topbar-btn" data-toggle="tooltip" data-placement="bottom" title="Split Files">
-            <i class="fa fa-code-fork" aria-hidden="true"></i>
+            <i class="fa fa-sitemap" aria-hidden="true"></i>
         </div>
     </div>
     <div id="file-breakout"></div>
@@ -56,7 +56,32 @@
 <div class="clearfix"></div>
 <div id="welcome">
     <div class="container-fluid">
-        <h3>Welcome to the Arduino External Editor</h3>
+        <h3 class="font-orange">Welcome to the Arduino External Editor</h3>
+        <p class="font-grey">This is an external editor for the Arduino IDE. You will still use the Arduino IDE to select boards files,
+        upload, and connect with the serial monitor. The only thing this does is makes it easier to write the code
+        for Arduino.</p>
+        <hr>
+        <div class="row">
+            <div class="col-xs-6">
+                <h4 class="font-yellow">Using with the Arduino IDE</h4>
+                <p>To use with the Arduino IDE, you need to enable the external editor. Open the file (or create and save one) you want to work with
+                in the Arduino IDE. Open <span class="font-green">File -> Preferences</span>. Check <span class="font-green">Use external editor</span>.</p>
+                <p>Now you just need to open the file in this editor. When you make changes here, you will see those changes
+                in Arduino. You can compile, upload, and use the serial monitor just like you would normally. </p>
+            </div>
+            <div class="col-xs-6">
+                <h4 class="font-yellow">Creating Virtual Files</h4>
+                <p>The External Arduino Editor works with virtual files. There is no need for header files or c / c++ files.
+                The files are split up virtually but remain a single Arduino INO file.</p>
+                <p>Now you can fill your file with virtual file tags. The tags look like this
+                    <span class="font-green">//{{</span><span class="font-orange">yourFileName</span><span class="font-green">}}</span></p>
+                <p><span class="font-blue">A tag must be at the top</span>. Everything after the virtual file tag will be
+                placed in a new virtual file all the way to the end, unless a new virtual file tag is found. When you are
+                done with your tags, click the split file button to generate the virtual files.</p>
+
+                <img src="img/welcome1.png">
+            </div>
+        </div>
     </div>
 </div>
 

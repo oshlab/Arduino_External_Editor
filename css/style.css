@@ -1,7 +1,7 @@
 html, body{
     height:100%;
-    color:#000;
-    background:#EBEBEB;
+    color: #a9b7c6;
+    background:#323232;
     font-family: 'Open Sans', sans-serif;
 }
 #topbar{
@@ -91,4 +91,23 @@ html, body{
 }
 #sidebar-toolbar .topbar-btn:hover{
     background: #2d3434;
+}
+hr {
+    border-top: 1px solid #CACACA;
+}
+.font-orange{
+    color: #CC7833;
+}
+.font-grey{
+    font-style: italic;
+    color: #808080;
+}
+.font-blue{
+    color: #6C99BB;
+}
+.font-yellow{
+    color: #ffc66d;
+}
+.font-green{
+    color: #6a8759;
 }
