@@ -1,11 +1,12 @@
 {
   "name": "arduinoeditor",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "An external editor based for the Arduino IDE",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node_modules/.bin/nw"
+    "start": "node_modules/.bin/nw",
+    "build": "node build.js"
   },
   "window": {
     "width": 900,
@@ -16,6 +17,20 @@
     "min_width": 600,
     "min_height": 450
   },
-  "author": "",
-  "license": "MIT"
+  "author": {
+    "name": "Jaret Burkett",
+    "email": "jaretburkett@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/oshlab/Arduino_External_Editor/issues",
+    "email": "jaretburkett@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oshlab/Arduino_External_Editor.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "nwjs-builder": "^1.13.1"
+  }
 }

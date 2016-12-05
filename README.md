@@ -1,9 +1,17 @@
 ### An External Editor For Arduino
 
 This project uses nw.js and the ace editor to make a better editor for Arduino.
+It includes a virtual filesystem.
 
-This project is currently in early alpha. Instructions to develope for it, and installer files will come shortly. 
+####This project is currently in early alpha. There will be bugs.
+ 
+ You can download the project on the [Release page](https://github.com/oshlab/Arduino_External_Editor/releases)
+ 
+#### Change Log
+V0.0.1 - Initial alpha release 
+ 
 
+#### Developing
 To install for now, you need node js v > 4
 
 clone this directory

@@ -77,6 +77,22 @@ editor.commands.addCommand({
     },
     readOnly: true // false if this command should not apply in readOnly mode
 });
+editor.commands.addCommand({
+    name: 'reparse',
+    bindKey: {win: 'Alt-S', mac: 'Alt-S'},
+    exec: function (editor) {
+        reparse();
+    },
+    readOnly: true // false if this command should not apply in readOnly mode
+});
+editor.commands.addCommand({
+    name: 'vftag',
+    bindKey: {win: 'Alt-F', mac: 'Alt-F'},
+    exec: function (editor) {
+        insertVfTag();
+    },
+    readOnly: true // false if this command should not apply in readOnly mode
+});
 
 function parseFile(filepath) {
     // default to not ignoremode
@@ -177,10 +193,14 @@ function editFile(key) {
     editor.focus();
 }
 
-function parseCurrent() {
+function parseCurrent(parseall) {
+    // pass true to reparse all
+    if (typeof parseall === 'undefined') {
+        parseall = false;
+    }
     var content = editor.getValue();
     var key = $('.file-selected').attr('data-id');
-    if (key == 'SHOWALLFILE') {
+    if (key == 'SHOWALLFILE' || parseall) {
         var splitcode = content.split(/\/\/{{([0-9a-zA-z_\-\s]*)}}+/);
         // reparse whole code
         clearSplitfile(); //clear splitfile
@@ -211,7 +231,27 @@ function saveFile() {
 }
 
 function reparse(){
+    // get current row
+    var pos = editor.getCursorPosition();
+    var firstVisibleRow = editor.getFirstVisibleRow();
     parseCurrent();
+    // generate the file
+    var code = '';
+    for (var a in splitfile) {
+        code += '//{{' + a + '}}\n';
+        code += splitfile[a]+'\n';
+    }
+
+    // remake file
+    var splitcode = code.split(/\/\/{{([0-9a-zA-z_\-\s]*)}}+/);
+    clearSplitfile();
+    for (var i = 1; i < splitcode.length; i = i + 2) {
+        // we remove the first and last new line in the code after split
+        splitfile[splitcode[i]] = splitcode[i + 1].replace('\n', '').replace(/\n$/, '');;
+
+    }
+
+    // make file menu
     var key = $('.file-selected').attr('data-id');
     var str = '<ul>';
     str += '<li id="allfilesbutton" class="filelink';
@@ -231,6 +271,18 @@ function reparse(){
     $('#file-breakout').html(str);
     editFile(key);
     setupFilelink();
+    // go to last postion
+    editor.moveCursorToPosition(pos);
+    editor.scrollToRow(firstVisibleRow);
+}
+
+function insertVfTag(){
+    var pos = editor.getCursorPosition();
+    var firstVisibleRow = editor.getFirstVisibleRow();
+    editor.session.insert(pos, '//{{}}');
+    pos.column = pos.column + 4;
+    editor.moveCursorToPosition(pos);
+    editor.scrollToRow(firstVisibleRow);
 }
 /************* Functions ***************/
 
