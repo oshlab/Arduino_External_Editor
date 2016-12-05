@@ -111,3 +111,21 @@ hr {
 .font-green{
     color: #6a8759;
 }
+.oshlab{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    padding: 0 20px 10px;
+    box-sizing: border-box;
+}
+.oshlab img{
+    max-width:100%;
+}
+.oshlab p {
+    margin: 0;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    font-weight: 200;
+}

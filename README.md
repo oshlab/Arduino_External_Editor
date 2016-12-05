@@ -7,7 +7,9 @@ It includes a virtual filesystem.
  
  You can download the project on the [Release page](https://github.com/oshlab/Arduino_External_Editor/releases)
  
-![Arduino External Editor](https://oshlab.com/wp-content/uploads/2016/12/Screenshot-2016-12-05-05.43.59.png "Arduino External Editor")
+ Get more info at [https://oshlab.com/arduinoeditor](https://oshlab.com/arduinoeditor)
+ 
+![Arduino External Editor](https://oshlab.com/wp-content/uploads/2016/12/Screenshot-2016-12-05-13.07.11.png "Arduino External Editor")
 
 #### Change Log
 V0.0.1 - Initial alpha release 
