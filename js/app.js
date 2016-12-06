@@ -1,4 +1,6 @@
 /********* Setup ***************/
+//TODO update this here and in package.json every version
+var version = '0.0.1';
 
 var fs = require('fs');
 var path = require('path');
@@ -16,6 +18,9 @@ $('a[target=_blank]').on('click', function(){
     require('nw.gui').Shell.openExternal( this.href );
     return false;
 });
+
+// put version number
+$('.version-num').html(version);
 
 
 /********* Buttons **************/
@@ -42,6 +47,23 @@ $('#reparse-btn').click(function(){
     reparse();
 });
 
+/************* Help ****************/
+$('#help-btn').click(function(){
+    var content = '';
+    content += '<div class="pull-right">'+$('.version-box').html()+'</div>';
+    content += $('#additional-help').html();
+    content += $('#arduino-help').html();
+    content += $('#vf-help').html();
+    content += $('#hotkeys-help').html();
+    showModal('Help', content);
+});
+
+/************* Modal ****************/
+function showModal(title, content){
+    $('#modal-title').html(title);
+    $('#modal-body').html(content);
+    $('#modal').modal('show');
+}
 /********* Notification **************/
 function notify(string, addclass) {
     $('#notifier').html(string)

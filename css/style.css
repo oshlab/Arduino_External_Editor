@@ -4,6 +4,17 @@ html, body{
     background:#323232;
     font-family: 'Open Sans', sans-serif;
 }
+img {
+    max-width: 100%;
+}
+a {
+    color: #C77132;
+    text-decoration: none;
+}
+a:focus, a:hover {
+    color: #C77132;
+    text-decoration: underline;
+}
 #topbar{
     background:#008184;
     height: 40px;
@@ -24,6 +35,7 @@ html, body{
 #welcome{
     height: calc(100% - 40px);
     overflow: auto;
+    position:relative;
 }
 #editor {
     width: 100%;
@@ -128,4 +140,51 @@ hr {
     color: #fff;
     text-align: center;
     font-weight: 200;
+}
+.version-box{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.version-text{
+    padding: 5px;
+}
+.btn-primary {
+    color: #fff;
+    background: #008184;
+    border-color: #008184;
+    border-radius: 0;
+}
+.btn-primary:hover,
+.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary,
+.btn-primary.focus, .btn-primary:focus{
+    color: #fff;
+    background: #0CA1A6;
+    border-color: #0CA1A6;
+}
+
+/*Modal*/
+.modal-content{
+    color: #a9b7c6;
+    background:#323232;
+}
+.modal-header{
+    background: #008184;
+    color:#fff;
+    padding: 10px 15px;
+    border-bottom: 0;
+}
+.modal-header .close {
+    color: #fff;
+    text-shadow: none;
+    opacity: 1;
+    padding: 3px 0 3px 0;
+}
+.modal-body{
+    font-size: 12px;
+}
+.modal-footer{
+    background: #555555;
+    border-top: 0;
+    padding: 10px 15px;
 }

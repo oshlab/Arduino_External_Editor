@@ -7,8 +7,7 @@ NWB.commands.nwbuild(__dirname+'/', {
     sideBySide:true,
     winIco:'./img/icon.ico',
     macIcns:'./img/icon.icns',
-    executableNam:'Arduino External Editor',
-    production: true
+    executableNam:'Arduino External Editor'
 
 }, function(){
     console.log('Done and Done');

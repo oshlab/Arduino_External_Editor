@@ -31,6 +31,9 @@
             <div id="filename" class="col-xs-4"></div>
             <div class="col-xs-4"></div>
             <div class="col-xs-4 text-right">
+                <div id="help-btn" class="topbar-btn" data-toggle="tooltip" data-placement="bottom" title="Help">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </div>
                 <div id="open-btn" class="topbar-btn" data-toggle="tooltip" data-placement="bottom" title="Open">
                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                 </div>
@@ -61,38 +64,86 @@
 <div id="welcome">
     <div class="container-fluid">
         <h3 class="font-orange">Welcome to the Arduino External Editor</h3>
-        <p class="font-grey">This is an external editor for the Arduino IDE. You will still use the Arduino IDE to select boards files,
-        upload, and connect with the serial monitor. The only thing this does is makes it easier to write the code
-        for Arduino.</p>
+        <p class="font-grey">This is an external editor for the Arduino IDE. You will still use the Arduino IDE to
+            select boards files,
+            upload, and connect with the serial monitor. The only thing this does is makes it easier to write the code
+            for Arduino.</p>
         <hr>
         <div class="row">
             <div class="col-xs-6">
-                <h4 class="font-yellow">Using with the Arduino IDE</h4>
-                <p>To use with the Arduino IDE, you need to enable the external editor. Open the file (or create and save one) you want to work with
-                in the Arduino IDE. Open <span class="font-green">File -> Preferences</span>. Check <span class="font-green">Use external editor</span>.</p>
-                <p>Now you just need to open the file in this editor. When you make changes here, you will see those changes
-                in Arduino. You can compile, upload, and use the serial monitor just like you would normally. </p>
-                <h4 class="font-yellow">HotKeys</h4>
-                <p><span class="font-green">Alt-S</span> - <span class="font-grey">Splits files based on Virtual File tags</span> </p>
-                <p><span class="font-green">Alt-F</span> - <span class="font-grey">Insert Virtual File tag</span> </p>
+                <div id="additional-help">
+                    <h4 class="font-yellow">Additional Help</h4>
+                    <p>You can get additional help, including documentation and updates, on our website.
+                        <a href="https://oshlab.com/arduinoeditor/" target="_blank">https://oshlab.com/arduinoeditor/</a>
+                </div>
+                <div id="arduino-help">
+                    <h4 class="font-yellow">Using with the Arduino IDE</h4>
+                    <p>To use with the Arduino IDE, you need to enable the external editor. Open the file (or create and
+                        save one) you want to work with
+                        in the Arduino IDE. Open <span class="font-green">File -> Preferences</span>. Check <span
+                                class="font-green">Use external editor</span>.</p>
+                    <p>Now you just need to open the file in this editor. When you make changes here, you will see those
+                        changes
+                        in Arduino. You can compile, upload, and use the serial monitor just like you would
+                        normally. </p>
+                </div>
+                <div id="hotkeys-help">
+                    <h4 class="font-yellow">HotKeys</h4>
+                    <p><span class="font-green">Alt-S</span> - <span class="font-grey">Splits files based on Virtual File tags</span>
+                    </p>
+                    <p><span class="font-green">Alt-F</span> - <span class="font-grey">Insert Virtual File tag</span>
+                    </p>
+                </div>
             </div>
             <div class="col-xs-6">
-                <h4 class="font-yellow">Creating Virtual Files</h4>
-                <p>The External Arduino Editor works with virtual files. There is no need for header files or c / c++ files.
-                The files are split up virtually but remain a single Arduino INO file.</p>
-                <p>Now you can fill your file with virtual file tags. The tags look like this
-                    <span class="font-green">//{{</span><span class="font-orange">yourFileName</span><span class="font-green">}}</span></p>
-                <p><span class="font-blue">A tag must be at the top</span>. Everything after the virtual file tag will be
-                placed in a new virtual file all the way to the end, unless a new virtual file tag is found. When you are
-                done with your tags, click the split file button to generate the virtual files.</p>
+                <div id="vf-help">
+                    <h4 class="font-yellow">Creating Virtual Files</h4>
+                    <p>The External Arduino Editor works with virtual files. There is no need for header files or c /
+                        c++
+                        files.
+                        The files are split up virtually but remain a single Arduino INO file.</p>
+                    <p>Now you can fill your file with virtual file tags. The tags look like this
+                        <span class="font-green">//{{</span><span class="font-orange">yourFileName</span><span
+                                class="font-green">}}</span></p>
+                    <p><span class="font-orange">A tag must be at the top</span>. Everything after the virtual file tag
+                        will
+                        be
+                        placed in a new virtual file all the way to the end, unless a new virtual file tag is found.
+                        When
+                        you are
+                        done with your tags, click the split file button to generate the virtual files.</p>
 
-                <img src="img/welcome1.png">
+                    <img src="img/welcome1.png">
+                </div>
             </div>
+        </div>
+    </div>
+    <div class="version-box">
+        <div class="version-text">
+            Version <span class="version-num"></span>
         </div>
     </div>
 </div>
 
-<div id="notifier"> something </div>
+<div id="notifier"> something</div>
+<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 id="modal-title" class="modal-title">Modal title</h4>
+            </div>
+            <div id="modal-body" class="modal-body">
+                <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Modal -->
 
 <!-- load ace -->
 <script src="/js/ace/ace.js"></script>
