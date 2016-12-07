@@ -30,3 +30,10 @@ Now we need to install the nwjs package
 
 To start run 
 `npm start`
+
+#### Building
+You need the nwjs-builder
+`npm install nwjs-builder -g`
+
+Run the following command to build for all platforms. You can remove platforms
+if you want. 

@@ -29,8 +29,5 @@
     "type": "git",
     "url": "https://github.com/oshlab/Arduino_External_Editor.git"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "nwjs-builder": "^1.13.1"
-  }
+  "license": "MIT"
 }
