@@ -24,16 +24,23 @@ clone this directory
 
 `cd Arduino_External_Editor`
 
-Now we need to install the nwjs package
+You need the nwjs-builder
+`npm install nwjs-builder -g`
 
-`npm install nw@0.14.7-sdk --nwjs_build_type=sdk`
-
-To start run 
+To run 
 `npm start`
 
 #### Building
 You need the nwjs-builder
 `npm install nwjs-builder -g`
 
-Run the following command to build for all platforms. You can remove platforms
-if you want. 
+Run the following command to build for all platforms in production mode. It will also zip them. 
+`npm run-script build-production`
+
+The following commands will build in sdk mode (console, inspector mode). You can build all or just the one you want. 
+Just run one of the following. They are pretty self explanatory.
+
+`npm run-script build-all-sdk`
+`npm run-script build-win-sdk`
+`npm run-script build-mac-sdk`
+`npm run-script build-linux-sdk`
