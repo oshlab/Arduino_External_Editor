@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nwb nwbuild -v 0.14.7-sdk -r ./",
-    "build-production": "nwb nwbuild -v 0.14.7 -p win32,osx64,linux64 --output-format ZIP --executable-name \"Arduino External Editor\" --win-ico img/icon.ico --mac-icns img/icon.icns  -o ./build ./",
-    "build-all-sdk": "nwb nwbuild -v 0.14.7-sdk -p win32,osx64,linux64 --executable-name \"Arduino External Editor\" --win-ico img/icon.ico --mac-icns img/icon.icns --side-by-side -o ./build ./",
-    "build-win-sdk": "nwb nwbuild -v 0.14.7-sdk -p win32 --executable-name \"Arduino External Editor\" --win-ico img/icon.ico --side-by-side -o ./build ./",
-    "build-mac-sdk": "nwb nwbuild -v 0.14.7-sdk -p osx64 --executable-name \"Arduino External Editor\" --mac-icns img/icon.icns --side-by-side -o ./build ./",
-    "build-linux-sdk": "nwb nwbuild -v 0.14.7-sdk -p linux64 --executable-name \"Arduino External Editor\" --side-by-side -o ./build ./"
+    "build-production": "nwb nwbuild -v 0.19.0 -p win32,osx64,linux64 --output-format ZIP --executable-name \"Arduino External Editor\" --win-ico img/icon.ico --mac-icns img/icon.icns  -o ../AEE_build ./",
+    "build-all-sdk": "nwb nwbuild -v 0.19.0-sdk -p win32,osx64,linux64 --executable-name \"Arduino External Editor\" --win-ico img/icon.ico --mac-icns img/icon.icns --side-by-side -o ../AEE_build ./",
+    "build-win-sdk": "nwb nwbuild -v 0.19.0-sdk -p win32 --executable-name \"Arduino External Editor\" --win-ico img/icon.ico --side-by-side -o ../AEE_build ./",
+    "build-mac-sdk": "nwb nwbuild -v 0.19.0-sdk -p osx64 --executable-name \"Arduino External Editor\" --mac-icns img/icon.icns --side-by-side -o ../AEE_build ./",
+    "build-linux-sdk": "nwb nwbuild -v 0.19.0-sdk -p linux64 --executable-name \"Arduino External Editor\" --side-by-side -o ../AEE_build ./"
   },
   "window": {
     "width": 900,

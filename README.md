@@ -31,6 +31,9 @@ To run
 `npm start`
 
 #### Building
+
+Note, the builder builds everything in the folder. Therefore, the builder will output files in one 
+folder above called AEE_build
 You need the nwjs-builder
 `npm install nwjs-builder -g`
 
