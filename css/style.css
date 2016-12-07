@@ -163,6 +163,31 @@ hr {
     border-color: #0CA1A6;
 }
 
+.donate-container{
+    position: fixed;
+    bottom: 0;
+    right: 40px;
+    z-index: 1000;
+}
+.donate-button{
+    background: #008184;
+    padding: 5px 10px;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+    -webkit-transition: padding 0.5s, background 0.5s, font-size 0.5s, border-radius 0.5s;
+    transition: padding 0.5s, background 0.5s, font-size 0.5s, border-radius 0.5s;
+    line-height: 12px;
+    font-size: 12px;
+}
+.donate-button:hover, .donate-button:active, .donate-button:focus{
+    padding: 15px 20px;
+    background: #0CA1A6;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 14px;
+}
 /*Modal*/
 .modal-content{
     color: #a9b7c6;

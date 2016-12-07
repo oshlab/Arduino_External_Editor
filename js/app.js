@@ -14,14 +14,20 @@ $(function () {
 });
 
 // open links in real browser
-$('a[target=_blank]').on('click', function(){
-    require('nw.gui').Shell.openExternal( this.href );
-    return false;
-});
+linkListen();
 
 // put version number
 $('.version-num').html(version);
 
+function linkListen(){
+    // unbind links
+    $('a[target=_blank]').unbind( 'click');
+    // bind links
+    $('a[target=_blank]').bind('click', function(){
+        require('nw.gui').Shell.openExternal( this.href );
+        return false;
+    });
+}
 
 /********* Buttons **************/
 // open dialog
@@ -56,7 +62,35 @@ $('#help-btn').click(function(){
     content += $('#vf-help').html();
     content += $('#hotkeys-help').html();
     showModal('Help', content);
+    // open links in real browser
+    linkListen();
 });
+
+/************* Donate ****************/
+$('.donate-button').click(function(){
+    var content = '';
+    content += '<h3 class="font-orange">Why Donate?</h3>' +
+        '<p>This software is Open Source and free. But it take a lot of time ' +
+        'to develop and takes a lot of time to continue adding new features.' +
+        'I have a dream to make this software amazing. But, I still have bills to ' +
+        'pay and a family to support. Your donations help me continue work on this ' +
+        'software.</p><br/>' +
+        '<h4 class="font-yellow"><i class="fa fa-paypal" aria-hidden="true"></i> Credit Card / Paypal</h4> ' +
+        '<p>I accept donations through PayPal which will allow you to use your PayPal account ' +
+        'or a credit card if you do not have a Paypal account.</p>' +
+        '<p class="text-center">' +
+        '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z3PFE6KWKB4EW" target="_blank" class="btn btn-primary">' +
+        '<i class="fa fa-paypal" aria-hidden="true"></i> &nbsp; Donate</a></p>' +
+        '<h4 class="font-yellow"><i class="fa fa-btc" aria-hidden="true"></i> Bitcoin</h4> ' +
+        '<p>I also accept donations through Bitcoin. You can send your coin to the following ' +
+        'address </p><br/>' +
+        '<h4 class="text-center font-green">14ExE2V92mXsEwnZhCUqkBcRxk152z3AzU</h4><br/>' +
+        '<p class="text-center"><img src="/img/qrbitcoin.png"/> </p> ';
+    showModal('Donate', content);
+    // open links in real browser
+    linkListen();
+});
+
 
 /************* Modal ****************/
 function showModal(title, content){
@@ -79,7 +113,7 @@ function notify(string, addclass) {
 }
 
 /********* ACE EDITOR ***********/
-
+// var langTools = ace.require("ace/ext/language_tools");
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/darcula");
 editor.getSession().setMode("ace/mode/arduino");
@@ -91,6 +125,7 @@ editor.setOptions({
     tabSize: 2,
     fontSize: "10pt"
 });
+// langTools.addCompleter(arduinoCompleter);
 // setup an on change event
 editor.getSession().on('change', function (e) {
     // e.type, etc

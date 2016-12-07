@@ -84,14 +84,21 @@ ace.define("ace/mode/arduino_highlight_rules",["require","exports","module","ace
             "NULL|true|false|TRUE|FALSE|nullptr"
         );
         var arduinoOperators = (
-            "Serial|pinMode|digitalWrite|digitalRead|analogReference|analogRead"+
-            "analogWrite|millis|delay|delayMicroseconds|micros|map|random"
+            "Serial|pinMode|digitalWrite|digitalRead|analogReference|analogRead|"+
+            "analogWrite|millis|delay|delayMicroseconds|micros|map|random|randomSeed|" +
+            "lowByte|highByte|bitRead|bitWrite|bitSet|bitClear|bit|attachInterrupt|" +
+            "detachInterrupt|interrupts|noInterrupts|Stream|isAlphaNumeric|isAlpha|isAscii|" +
+            "isWhitespace|isControl|isDigit|isGraph|isLowerCase|isPrintable|isPunct|isSpace|" +
+            "isUpperCase|isHexadecimalDigit"
         );
         var arduinoSupport = (
-            "print|println|begin"
+            "print|println|begin|available|availableForWrite|end|find|findUntil|flush|"+
+            "parseFloat|parseInt|peek|read|readBytes|readBytesUntil|readString|readStringUntil|" +
+            "setTimeout|write|serialEvent|requestFrom|beginTransmission|endTransmission|onRecieve|" +
+            "onRequest"
         );
         var arduinoStorage = (
-            "uint16_t|int16_t|uint8_t|int8_t|uint24_t|int24_t|uint32_t|int32_t"
+            "uint16_t|int16_t|uint8_t|int8_t|uint24_t|int24_t|uint32_t|int32_t|word|String"
         );
         var arduinoConstant = (
             "HIGH|LOW|INPUT|OUTPUT|INPUT_PULLUP|LED_BUILTIN|PROGMEM"
