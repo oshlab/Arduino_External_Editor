@@ -11,17 +11,20 @@
     <title>Arduino External Editor</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/fonts.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="./css/fonts.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script>
+        // needed for electron over include
+        var $ = jQuery = require('./js/jquery');
+    </script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -151,10 +154,10 @@
 </div>
 
 <!-- load ace -->
-<script src="/js/ace/ace.js"></script>
-<script src="/js/ace/ext-language_tools.js"></script>
-<script src="/js/arduino_language_tools.js"></script>
-<script src="/js/app.js"></script>
+<script src="./js/ace/ace.js"></script>
+<script src="./js/ace/ext-language_tools.js"></script>
+<script src="./js/arduino_language_tools.js"></script>
+<script src="./js/app.js"></script>
 
 </body>
 </html>

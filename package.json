@@ -1,25 +1,16 @@
 {
   "name": "arduinoeditor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An external editor based for the Arduino IDE",
-  "main": "index.html",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nwb nwbuild -v 0.14.7-sdk -r ./",
+    "start": "electron .",
     "build-production": "cd .. && nwb nwbuild -v 0.19.0 -p win64,win32,osx64,linux64 --win-ico  ./Arduino_External_Editor/img/icon.ico --mac-icns ./Arduino_External_Editor/img/icon.icns --output-format ZIP -o ./AEE_build ./Arduino_External_Editor",
     "build-all-sdk": "cd .. && nwb nwbuild -v 0.19.0-sdk -p win32,osx64,linux64 --win-ico ./Arduino_External_Editor/img/icon.ico --mac-icns img/icon.icns --side-by-side -o ./AEE_build ./Arduino_External_Editor",
     "build-win-sdk": "cd .. && nwb nwbuild -v 0.19.0-sdk -p win32 --win-ico ./Arduino_External_Editor/img/icon.ico --side-by-side -o ./AEE_build ./Arduino_External_Editor",
     "build-mac-sdk": "cd .. && nwb nwbuild -v 0.19.0-sdk -p osx64 --mac-icns ./Arduino_External_Editor/img/icon.icns --side-by-side -o ./AEE_build ./Arduino_External_Editor",
     "build-linux-sdk": "cd .. && nwb nwbuild -v 0.19.0-sdk -p linux64 --side-by-side -o ./AEE_build ./Arduino_External_Editor"
-  },
-  "window": {
-    "width": 900,
-    "height": 700,
-    "title": "Arduino External Editor",
-    "toolbar": false,
-    "icon": "./img/icon.png",
-    "min_width": 600,
-    "min_height": 450
   },
   "author": {
     "name": "Jaret Burkett",

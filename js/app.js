@@ -7,6 +7,7 @@ var path = require('path');
 var filepath;
 var filename;
 var splitfile = {};
+const {dialog} = require('electron').remote;
 
 $(function () {
     // activate tooltips
@@ -19,12 +20,12 @@ linkListen();
 // put version number
 $('.version-num').html(version);
 
-function linkListen(){
+function linkListen() {
     // unbind links
-    $('a[target=_blank]').unbind( 'click');
+    $('a[target=_blank]').unbind('click');
     // bind links
-    $('a[target=_blank]').bind('click', function(){
-        require('nw.gui').Shell.openExternal( this.href );
+    $('a[target=_blank]').bind('click', function () {
+        require('nw.gui').Shell.openExternal(this.href);
         return false;
     });
 }
@@ -32,31 +33,45 @@ function linkListen(){
 /********* Buttons **************/
 // open dialog
 $('#open-btn').click(function () {
-    var chooser = $('#fileDialog');
-    chooser.unbind('change');
-    chooser.change(function (evt) {
-        filepath = $(this).val();
-        filename = path.basename(filepath);
-        console.log('Filename:' + filename);
-        console.log('Filepath:' + filepath);
-        $('#filename').html(filename);
-        parseFile(filepath);
+    // var chooser = $('#fileDialog');
+    // chooser.unbind('change');
+    // chooser.change(function (evt) {
+    //     filepath = $(this).val();
+    //     filename = path.basename(filepath);
+    //     console.log('Filename:' + filename);
+    //     console.log('Filepath:' + filepath);
+    //     $('#filename').html(filename);
+    //     parseFile(filepath);
+    // });
+    // chooser.trigger('click');
+    var tmp = dialog.showOpenDialog({
+        properties: ['openFile'],
+        filters: [
+            {name: 'Arduino', extensions: ['ino', 'pde']},
+            {name: 'C/C++', extensions: ['c', 'cpp', 'h']},
+            {name: 'All Files', extensions: ['*']}
+        ]
     });
-    chooser.trigger('click');
+    filepath = tmp[0];
+    filename = path.basename(filepath);
+    console.log('Filename:' + filename);
+    console.log('Filepath:' + filepath);
+    $('#filename').html(filename);
+    parseFile(filepath);
 });
 
 $('#save-btn').click(function () {
     saveFile();
 });
 
-$('#reparse-btn').click(function(){
+$('#reparse-btn').click(function () {
     reparse();
 });
 
 /************* Help ****************/
-$('#help-btn').click(function(){
+$('#help-btn').click(function () {
     var content = '';
-    content += '<div class="pull-right">'+$('.version-box').html()+'</div>';
+    content += '<div class="pull-right">' + $('.version-box').html() + '</div>';
     content += $('#additional-help').html();
     content += $('#arduino-help').html();
     content += $('#vf-help').html();
@@ -67,7 +82,7 @@ $('#help-btn').click(function(){
 });
 
 /************* Donate ****************/
-$('.donate-button').click(function(){
+$('.donate-button').click(function () {
     var content = '';
     content += '<h3 class="font-orange">Why Donate?</h3>' +
         '<p>This software is Open Source and free. But it take a lot of time ' +
@@ -85,7 +100,7 @@ $('.donate-button').click(function(){
         '<p>I also accept donations through Bitcoin. You can send your coin to the following ' +
         'address </p><br/>' +
         '<h4 class="text-center font-green">14ExE2V92mXsEwnZhCUqkBcRxk152z3AzU</h4><br/>' +
-        '<p class="text-center"><img src="/img/qrbitcoin.png"/> </p> ';
+        '<p class="text-center"><img src="./img/qrbitcoin.png"/> </p> ';
     showModal('Donate', content);
     // open links in real browser
     linkListen();
@@ -93,7 +108,7 @@ $('.donate-button').click(function(){
 
 
 /************* Modal ****************/
-function showModal(title, content){
+function showModal(title, content) {
     $('#modal-title').html(title);
     $('#modal-body').html(content);
     $('#modal').modal('show');
@@ -175,10 +190,11 @@ function parseFile(filepath) {
             console.log(splitcode);
             // put into split file object
             clearSplitfile(); // clear the object
-            if(splitcode.length > 1){
+            if (splitcode.length > 1) {
                 for (var i = 1; i < splitcode.length; i = i + 2) {
                     // we remove the first and last new line in the code after split
-                    splitfile[splitcode[i]] = splitcode[i + 1].replace('\n', '').replace(/\n$/, '');;
+                    splitfile[splitcode[i]] = splitcode[i + 1].replace('\n', '').replace(/\n$/, '');
+                    ;
 
                 }
             } else {
@@ -209,7 +225,7 @@ function parseFile(filepath) {
     }); // read file
 }
 
-function setupFilelink(){
+function setupFilelink() {
     // setup callbacks
     $('.filelink').click(function () {
         parseCurrent();
@@ -230,7 +246,7 @@ function editFile(key) {
         // show all file
         for (var k in splitfile) {
             c += '//{{' + k + '}}\n';
-            c += splitfile[k]+'\n';
+            c += splitfile[k] + '\n';
         }
     } else {
         console.log(splitfile);
@@ -238,9 +254,9 @@ function editFile(key) {
         console.log(splitfile[key]);
         c = splitfile[key];
         // increment line numbers
-        for(var ke in splitfile){
+        for (var ke in splitfile) {
             startLine++;
-            if(ke != key){
+            if (ke != key) {
                 startLine = (splitfile[ke].split("\n").length - 1) + startLine;
                 startLine++;
             } else {
@@ -281,7 +297,7 @@ function saveFile() {
     var code = '';
     for (var k in splitfile) {
         code += '//{{' + k + '}}\n';
-        code += splitfile[k]+'\n';
+        code += splitfile[k] + '\n';
     }
 
     fs.writeFile(filepath, code, function (err) {
@@ -293,7 +309,7 @@ function saveFile() {
     });
 }
 
-function reparse(){
+function reparse() {
     // get current row
     var pos = editor.getCursorPosition();
     var firstVisibleRow = editor.getFirstVisibleRow();
@@ -302,7 +318,7 @@ function reparse(){
     var code = '';
     for (var a in splitfile) {
         code += '//{{' + a + '}}\n';
-        code += splitfile[a]+'\n';
+        code += splitfile[a] + '\n';
     }
 
     // remake file
@@ -310,7 +326,8 @@ function reparse(){
     clearSplitfile();
     for (var i = 1; i < splitcode.length; i = i + 2) {
         // we remove the first and last new line in the code after split
-        splitfile[splitcode[i]] = splitcode[i + 1].replace('\n', '').replace(/\n$/, '');;
+        splitfile[splitcode[i]] = splitcode[i + 1].replace('\n', '').replace(/\n$/, '');
+        ;
 
     }
 
@@ -324,11 +341,11 @@ function reparse(){
     str += '" data-id="SHOWALLFILE">SHOW ALL</li>';
     for (var k in splitfile) {
         str += '<li class="filelink';
-        console.log ('Key: '+ key+'   k: '+k);
-        if(key == k){
+        console.log('Key: ' + key + '   k: ' + k);
+        if (key == k) {
             str += ' file-selected'
         }
-        str+= '" data-id="' + k+'">' + k + '</li>';
+        str += '" data-id="' + k + '">' + k + '</li>';
     }
     str += '</ul>';
     $('#file-breakout').html(str);
@@ -339,7 +356,7 @@ function reparse(){
     editor.scrollToRow(firstVisibleRow);
 }
 
-function insertVfTag(){
+function insertVfTag() {
     var pos = editor.getCursorPosition();
     var firstVisibleRow = editor.getFirstVisibleRow();
     editor.session.insert(pos, '//{{}}');
