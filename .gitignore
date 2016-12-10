@@ -6,3 +6,4 @@ build
 Thumbs.db
 /img/Thumbs.db
 npm-debug.log
+dist

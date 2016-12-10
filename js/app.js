@@ -8,6 +8,7 @@ var filepath;
 var filename;
 var splitfile = {};
 const {dialog} = require('electron').remote;
+const {shell} = require('electron');
 
 $(function () {
     // activate tooltips
@@ -25,7 +26,7 @@ function linkListen() {
     $('a[target=_blank]').unbind('click');
     // bind links
     $('a[target=_blank]').bind('click', function () {
-        require('nw.gui').Shell.openExternal(this.href);
+        shell.openExternal(this.href);
         return false;
     });
 }

@@ -1,6 +1,6 @@
 ### An External Editor For Arduino
 
-This project uses nw.js and the ace editor to make a better editor for Arduino.
+This project uses electron and the ace editor to make a better editor for Arduino.
 It includes a virtual filesystem.
 
 ####This project is currently in early alpha. There will be bugs.
@@ -25,7 +25,7 @@ clone this directory
 `cd Arduino_External_Editor`
 
 You need the nwjs-builder
-`npm install nwjs-builder -g`
+`npm install electron -g`
 
 To run 
 `npm start`
@@ -35,15 +35,7 @@ To run
 Note, the builder builds everything in the folder. Therefore, the builder will output files in one 
 folder above called AEE_build
 You need the nwjs-builder
-`npm install nwjs-builder -g`
+`npm install electron-builder -g`
 
 Run the following command to build for all platforms in production mode. It will also zip them. 
-`npm run-script build-production`
-
-The following commands will build in sdk mode (console, inspector mode). You can build all or just the one you want. 
-Just run one of the following. They are pretty self explanatory.
-
-`npm run-script build-all-sdk`
-`npm run-script build-win-sdk`
-`npm run-script build-mac-sdk`
-`npm run-script build-linux-sdk`
+`npm run-scrupt dist`
