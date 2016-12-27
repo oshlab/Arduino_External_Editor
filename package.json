@@ -2,19 +2,6 @@
   "name": "arduinoeditor",
   "version": "0.0.2",
   "description": "An external editor based for the Arduino IDE",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
-    "pack": "build --dir",
-    "dist": "build --mac --linux --win"
-  },
-  "build": {
-    "appId": "your.id",
-    "mac": {
-      "category": "your.app.category.type"
-    }
-  },
   "author": {
     "name": "Jaret Burkett",
     "email": "jaretburkett@gmail.com"
@@ -28,7 +15,26 @@
     "url": "https://github.com/oshlab/Arduino_External_Editor.git"
   },
   "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "electron ./app --enable-logging",
+    "dev": "NODE_ENV='development' npm run start",
+    "dist": "build -mwl --x64 --ia32"
+  },
+
   "devDependencies": {
-    "electron": "^1.4.11"
+    "electron-builder": "^10.6.1",
+    "electron-prebuilt": "^1.4.11"
+  },
+  "build": {
+    "appId": "aee.apps.oshlab",
+    "app-category-type": "public.app-category.productivity",
+    "dmg": {
+      ...
+    },
+    "win": {
+      "iconUrl": "https://oshlab.com/wp-content/uploads/2016/12/icon.ico"
+    }
   }
 }
